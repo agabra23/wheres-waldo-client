@@ -112,6 +112,7 @@ function Play() {
         const data = await result.json();
         if (result.ok) {
           setCharacters(data);
+          console.log("Connected to Server");
         }
       } catch (error) {
         console.log(error);

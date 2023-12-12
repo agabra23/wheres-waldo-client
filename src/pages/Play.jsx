@@ -107,6 +107,7 @@ function Play() {
           `https://wheres-waldo-server.onrender.com/api/characters`,
           {
             method: "GET",
+            mode: "cors",
           }
         );
         const data = await result.json();

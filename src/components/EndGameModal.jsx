@@ -90,6 +90,7 @@ const EndGameModal = ({ time, gameWon }) => {
           headers: {
             "Content-Type": "application/json",
           },
+          mode: "cors",
           body: JSON.stringify({
             username: usernameValue,
             time: time,

@@ -78,6 +78,7 @@ function Leaderboard() {
           `https://wheres-waldo-server.onrender.com/api/scores`,
           {
             method: "GET",
+            mode: "cors",
           }
         );
         const data = await result.json();

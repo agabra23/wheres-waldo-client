@@ -83,7 +83,7 @@ const EndGameModal = ({ time, gameWon }) => {
 
   const sendScore = async () => {
     try {
-      const result = await fetch(`${import.meta.env.VITE_API_URL}/scores`, {
+      const result = await fetch(`http://localhost:3000/api/scores`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

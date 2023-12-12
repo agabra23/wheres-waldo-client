@@ -103,9 +103,12 @@ function Play() {
   useEffect(() => {
     const fetchCharacters = async () => {
       try {
-        const result = await fetch(`http://localhost:3000/api/characters`, {
-          method: "GET",
-        });
+        const result = await fetch(
+          `https://wheres-waldo-server.onrender.com/api/characters`,
+          {
+            method: "GET",
+          }
+        );
         const data = await result.json();
         if (result.ok) {
           setCharacters(data);

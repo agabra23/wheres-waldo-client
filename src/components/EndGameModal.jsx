@@ -83,16 +83,19 @@ const EndGameModal = ({ time, gameWon }) => {
 
   const sendScore = async () => {
     try {
-      const result = await fetch(`http://localhost:3000/api/scores`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          username: usernameValue,
-          time: time,
-        }),
-      });
+      const result = await fetch(
+        `https://wheres-waldo-server.onrender.com/api/scores`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            username: usernameValue,
+            time: time,
+          }),
+        }
+      );
       console.log(result);
     } catch (error) {
       console.log(error.message);

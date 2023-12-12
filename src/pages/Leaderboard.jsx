@@ -74,9 +74,12 @@ function Leaderboard() {
   useEffect(() => {
     const fetchScores = async () => {
       try {
-        const result = await fetch(`http://localhost:3000/api/scores`, {
-          method: "GET",
-        });
+        const result = await fetch(
+          `https://wheres-waldo-server.onrender.com/api/scores`,
+          {
+            method: "GET",
+          }
+        );
         const data = await result.json();
         console.log("API DATA", data);
         if (result.ok) {

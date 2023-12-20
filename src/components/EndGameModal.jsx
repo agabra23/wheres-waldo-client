@@ -134,6 +134,12 @@ const EndGameModal = ({ time, gameWon }) => {
               placeholder="Username"
               value={usernameValue}
               onChange={handleChange}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  e.preventDefault();
+                  handleClick1(e);
+                }
+              }}
             />
           </FlexDiv>
           <button type="submit" onClick={handleClick1} onSubmit={handleClick1}>

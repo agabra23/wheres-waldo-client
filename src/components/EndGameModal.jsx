@@ -136,7 +136,7 @@ const EndGameModal = ({ time, gameWon }) => {
               onChange={handleChange}
             />
           </FlexDiv>
-          <button type="button" onClick={handleClick1}>
+          <button type="button" onClick={handleClick1} onSubmit={handleClick1}>
             Submit
           </button>
           <button onClick={refresh}>Retry</button>

@@ -4,6 +4,38 @@ import styled from "styled-components";
 import PlayBar from "../components/PlayBar";
 import EndGameModal from "../components/EndGameModal";
 
+const Loader = styled.div`
+  border: 10px solid #f3f3f3;
+  border-top: 10px solid #3498db;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  animation: spin 1s linear infinite;
+
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+`;
+
+const LoaderWrapper = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+`;
+
 const MainImage = styled.img`
   max-width: 100%;
   max-height: 150%;
@@ -78,6 +110,7 @@ function Play() {
   const [started, setStarted] = useState(false);
   const [time, setTime] = useState(0);
   const [score, setScore] = useState(0);
+  const [loading, setLoading] = useState(true);
 
   const intervalId = useRef(null);
 
@@ -86,6 +119,7 @@ function Play() {
     height: 0,
   });
 
+  //  Takes screen size into consideration when getting click coordinates
   const updateImageDimensions = () => {
     if (imageRef.current) {
       const { width, height } = imageRef.current.getBoundingClientRect();
@@ -114,6 +148,7 @@ function Play() {
         if (result.ok) {
           setCharacters(data);
           console.log("Connected to Server");
+          setLoading(false);
         }
       } catch (error) {
         console.log(error);
@@ -143,13 +178,6 @@ function Play() {
     if (gameWon) {
       clearInterval(intervalId.current);
       setScore(time);
-      /* 
-        - Pop up modal with input for name and display score
-        - Post name/score to database w/ submit button
-        
-        - Pop up another modal to restart or go to leaderboard
-
-      */
     }
   }, [gameWon, time]);
 
@@ -181,7 +209,11 @@ function Play() {
     checkCharacter(characterClicked);
   };
 
-  return (
+  return loading ? (
+    <LoaderWrapper>
+      <Loader />
+    </LoaderWrapper>
+  ) : (
     <>
       <ImageWrapper>
         <MainImage

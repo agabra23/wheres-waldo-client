@@ -26,8 +26,8 @@ To run the project in the "server" directory:
 
 - Run "npm run serverstart" to start local server on port 3000.
 
-[!WARNING]
-.env file is not included in server repository for security purposes. To run a server locally for this project, please create a MongoDB database and add its Mongo URL to a .env file with the variable name "MONGO_URL".
+> [!WARNING]
+> The .env file is not included in the server repository for security purposes. To run a server locally for this project, please create a MongoDB database and add its Mongo URL to a .env file with the variable name "MONGO_URL".
 
 ## Source Code/Issues
 

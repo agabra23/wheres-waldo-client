@@ -12,6 +12,8 @@ const NavDiv = styled.div`
   position: relative;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   color: white;
+  position: relative;
+  z-index: 10;
 `;
 
 const NavBarList = styled.ul`
@@ -24,12 +26,12 @@ const NavBarList = styled.ul`
     flex-direction: column;
     position: absolute;
     justify-content: space-between;
-    top: 65px;
+    top: 70px;
     left: 0;
     width: 100%;
     padding: 10px;
     display: ${(props) => (props.open ? "flex" : "none")};
-    z-index: 1;
+    z-index: 9;
   }
 `;
 

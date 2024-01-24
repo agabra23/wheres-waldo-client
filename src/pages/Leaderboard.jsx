@@ -74,13 +74,12 @@ function Leaderboard() {
   useEffect(() => {
     const fetchScores = async () => {
       try {
-        const result = await fetch(
-          `https://wheres-waldo-server.onrender.com/api/scores`,
-          {
-            method: "GET",
-            mode: "cors",
-          }
-        );
+        const apiUrl = `${import.meta.env.VITE_API_URL}/api/scores`;
+
+        const result = await fetch(apiUrl, {
+          method: "GET",
+          mode: "cors",
+        });
         const data = await result.json();
         console.log("API DATA", data);
         if (result.ok) {

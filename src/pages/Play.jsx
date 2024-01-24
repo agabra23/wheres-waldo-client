@@ -137,13 +137,11 @@ function Play() {
   useEffect(() => {
     const fetchCharacters = async () => {
       try {
-        const result = await fetch(
-          `https://wheres-waldo-server.onrender.com/api/characters`,
-          {
-            method: "GET",
-            mode: "cors",
-          }
-        );
+        const apiUrl = `${import.meta.env.VITE_API_URL}/api/characters`;
+        const result = await fetch(apiUrl, {
+          method: "GET",
+          mode: "cors",
+        });
         const data = await result.json();
         if (result.ok) {
           setCharacters(data);
